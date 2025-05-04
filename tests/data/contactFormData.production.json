@@ -1,0 +1,14 @@
+{
+    "validContact": {
+      "forename": "StagingUser",
+      "email": "staging@example.com",
+      "message": "Message from staging"
+    },
+    "bulkContacts": [
+      { "forename": "Stage0", "email": "Stage0@example.com", "message": "Hello 0" },
+      { "forename": "Stage1", "email": "Stage1@example.com", "message": "Hello 1" },
+      { "forename": "Stage2", "email": "Stage2@example.com", "message": "Hello 2" },
+      { "forename": "Stage3", "email": "Stage3@example.com", "message": "Hello 3" },
+      { "forename": "Stage4", "email": "Stage4@example.com", "message": "Hello 4" }
+    ]
+  }

@@ -1,35 +1,34 @@
-import { test, expect } from '@playwright/test';
+import { test } from '@playwright/test';
 import { HomePage } from '../pages/HomePage';
 import { ShopPage } from '../pages/ShopPage';
-import { retry } from '../lib/utils'; 
+import { retry } from '../lib/utils';
 
 test('Test Case 3 - Shopping Cart Validation', async ({ page }) => {
   const home = new HomePage(page);
   const shop = new ShopPage(page);
 
-  console.log('Navigating to home page...');
-  await home.navigate();
+  await test.step('Navigate to Home Page and go to Shop', async () => {
+    await home.navigate();
+    await home.goToShopPage();
+  });
 
-  console.log('Going to Shop page...');
-  await home.goToShopPage();
+  await test.step('Add multiple items to cart', async () => {
+    await retry(() => shop.addItemToCart('Stuffed Frog', 2), 'Add Stuffed Frog');
+    await retry(() => shop.addItemToCart('Fluffy Bunny', 5), 'Add Fluffy Bunny');
+    await retry(() => shop.addItemToCart('Valentine Bear', 3), 'Add Valentine Bear');
+  });
 
-  console.log('Adding items to cart...');
-  await retry(() => shop.addItemToCart('Stuffed Frog', 2), 'Stuffed Frog');
-  await retry(() => shop.addItemToCart('Fluffy Bunny', 5), 'Fluffy Bunny');
-  await retry(() => shop.addItemToCart('Valentine Bear', 3), 'Valentine Bear');
+  await test.step('Go to Cart Page', async () => {
+    await home.goToCartPage();
+  });
 
+  await test.step('Verify each product details and prices', async () => {
+    await shop.verifyProductDetails('Stuffed Frog', 10.99, 2);
+    await shop.verifyProductDetails('Fluffy Bunny', 9.99, 5);
+    await shop.verifyProductDetails('Valentine Bear', 14.99, 3);
+  });
 
-
-  console.log('Navigating to Cart page...');
-  await home.goToCartPage();
-
-  console.log('Verifying product details...');
-  await shop.verifyProductDetails('Stuffed Frog', 10.99, 2);
-  await shop.verifyProductDetails('Fluffy Bunny', 9.99, 5);
-  await shop.verifyProductDetails('Valentine Bear', 14.99, 3);
-
-  console.log('Verifying total sum...');
-  await shop.verifyTotalSum();
+  await test.step('Verify total amount in cart matches expected sum', async () => {
+    await shop.verifyTotalSum();
+  });
 });
-
-

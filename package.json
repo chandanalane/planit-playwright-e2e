@@ -2,13 +2,17 @@
   "name": "planit-playwright-e2e",
   "version": "1.0.0",
   "main": "index.js",
-  "scripts": {},
+  "scripts": {
+  "test:staging": "cross-env TEST_ENV=staging npx playwright test",
+  "test:production": "cross-env TEST_ENV=production npx playwright test"
+},
   "keywords": [],
   "author": "",
   "license": "ISC",
   "description": "",
   "devDependencies": {
     "@playwright/test": "^1.52.0",
-    "@types/node": "^22.15.3"
+    "@types/node": "^22.15.3",
+    "cross-env": "^7.0.3"
   }
 }

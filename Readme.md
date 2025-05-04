@@ -99,7 +99,8 @@ git clone git@github.com:chandanalane/planit-playwright-e2e.git
 cd planit-playwright-e2e
 npm install
 npx playwright install
-npx playwright test
+To Run in Staging: npm run test:staging
+To Run in Production: npm run test:production
 ```
 
 ---

@@ -1,0 +1,14 @@
+{
+    "validContact": {
+      "forename": "ProdUser",
+      "email": "prod@example.com",
+      "message": "Message from production"
+    },
+    "bulkContacts": [
+      { "forename": "Prod0", "email": "Prod0@example.com", "message": "Hello 0" },
+      { "forename": "Prod1", "email": "Prod1@example.com", "message": "Hello 1" },
+      { "forename": "Prod2", "email": "Prod2@example.com", "message": "Hello 2" },
+      { "forename": "Prod3", "email": "Prod3@example.com", "message": "Hello 3" },
+      { "forename": "Prod4", "email": "Prod4@example.com", "message": "Hello 4" }
+    ]
+  }
