@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Automated UI Testing Framework Documentation</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      padding: 20px;
+      max-width: 900px;
+      margin: auto;
+    }
+    h1, h2, h3 {
+      color: #2c3e50;
+    }
+    code {
+      background-color: #f4f4f4;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    pre {
+      background-color: #f4f4f4;
+      padding: 10px;
+      border-radius: 5px;
+      overflow-x: auto;
+    }
+    table {
+      border-collapse: collapse;
+      width: 100%;
+    }
+    th, td {
+      border: 1px solid #ccc;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background-color: #f0f0f0;
+    }
+  </style>
+</head>
+<body>
+  <h1>📘 Automated UI Testing Framework Documentation</h1>
+
+  <h2>📌 Index</h2>
+  <ul>
+    <li><a href="#overview">Project Overview</a></li>
+    <li><a href="#features">Key Features</a></li>
+    <li><a href="#testcases">Test Cases</a></li>
+    <li><a href="#traceability">Traceability Metrics</a></li>
+    <li><a href="#usecases">Automated Use Cases</a></li>
+    <li><a href="#architecture">Architecture</a></li>
+    <li><a href="#bestpractices">Best Practices Followed</a></li>
+    <li><a href="#cicd">CI/CD Integration with Jenkins</a></li>
+    <li><a href="#getting-started">Getting Started</a></li>
+    <li><a href="#reporting">Reporting & Debugging</a></li>
+    <li><a href="#structure">Project Structure</a></li>
+    <li><a href="#author">Author Details</a></li>
+
+  </ul>
+
+  <h2 id="overview">📝 Project Overview</h2>
+  <p>This framework is built using <strong>Playwright with TypeScript</strong> and follows the <strong>Page Object Model</strong> pattern to automate UI workflows efficiently. The project emphasizes reliability, reusability, and CI/CD readiness.</p>
+
+  <h2 id="features">✅ Key Features</h2>
+  <ul>
+    <li>Playwright automation using TypeScript</li>
+    <li>Robust <strong>Page Object Model</strong> structure</li>
+    <li>Retry utility for resilient test steps</li>
+    <li>Dynamic waits to avoid flakiness</li>
+    <li>Logging and console tracing for debugging</li>
+    <li>CI/CD pipeline using Jenkins</li>
+  </ul>
+
+  <h2 id="configurations">✅ Configurations</h2>
+  <ul>
+    <li>baseURL: 'http://jupiter.cloud.planittesting.com'</li>
+    <li>    headless: false    </li>
+    <li>timeout:50000</li>
+    <li> Browser: Chromium (But can be enabled other browsers or can pass through commandline)</li>
+
+  </ul>
+
+  <h2 id="tools">✅ Tools</h2>
+  <ul>
+    <li> Jenkins, Node.js, npm, Git</li>
+
+  </ul>
+
+
+
+  <h2 id="testcases">🧪 Test Cases</h2>
+  <h3>Test Case 1: Contact Form Validation</h3>
+  <ol>
+    <li>From the home page, navigate to the Contact page</li>
+    <li>Click the Submit button</li>
+    <li>Verify error messages for required fields</li>
+    <li>Populate mandatory fields: Forename, Email, Message</li>
+    <li>Verify that the error messages disappear</li>
+  </ol>
+
+  <h3>Test Case 2: Successful Contact Submission</h3>
+  <ol>
+    <li>From the home page, navigate to the Contact page</li>
+    <li>Fill in the mandatory fields</li>
+    <li>Click Submit</li>
+    <li>Verify the success message appears</li>
+    <li>This test runs 5 times to validate stability</li>
+  </ol>
+
+  <h3>Test Case 3: Shopping Cart Price Validation</h3>
+  <ol>
+    <li>Buy 2 Stuffed Frogs, 5 Fluffy Bunnies, 3 Valentine Bears</li>
+    <li>Navigate to the cart page</li>
+    <li>Validate individual product prices</li>
+    <li>Validate subtotal for each product line</li>
+    <li>Ensure the total equals the sum of all subtotals</li>
+  </ol>
+
+  <h2 id="usecases">📋 Use Cases Automated</h2>
+  <h3>1. Contact Page Tests</h3>
+  <ul>
+    <li>Validation of required fields (Forename, Email, Message)</li>
+    <li>Dynamic field filling with unique values</li>
+    <li>Success message validation post submission</li>
+  </ul>
+
+  <h3>2. Shopping Cart Tests</h3>
+  <ul>
+    <li>Add multiple products with custom quantities</li>
+    <li>Validate unit price and subtotal for each row</li>
+    <li>Ensure cart total matches sum of subtotals</li>
+  </ul>
+
+  <h2 id="architecture">🏛️ Framework Architecture</h2>
+  <h3>Framework Layers</h3>
+  <ul>
+    <li><strong>Test Layer</strong> - Contains Playwright tests using the Page objects</li>
+    <li><strong>Page Layer</strong> - Encapsulates UI elements and actions per page</li>
+    <li><strong>Utils Layer</strong> - Common utilities like retry and wait logic</li>
+  </ul>
+  <p><strong>Playwright Architecture:</strong></p>
+  <ul>
+    <li>Browser Context & Page Objects managed per test run</li>
+    <li>Auto-waiting mechanisms built-in</li>
+    <li>Parallel execution and trace recording supported</li>
+  </ul>
+
+  <h2 id="bestpractices">🛠️ Best Practices Followed</h2>
+  <ul>
+    <li><strong>POM architecture</strong> for separation of concerns</li>
+    <li><strong>Retry logic</strong> in utility for flaky elements</li>
+    <li>Use of <strong>Playwright's dynamic waiting</strong> instead of fixed timeouts</li>
+    <li>Reusability and modularization of test scripts</li>
+    <li>Console logging and step tracing for clarity</li>
+  </ul>
+
+  <h2 id="traceability">📊 Traceability Metrics</h2>
+  <table>
+    <tr><th>Test Case ID</th><th>Description</th><th>Page/Object</th><th>Validation</th></tr>
+    <tr><td>TC1</td><td>Contact Form - Error Validation</td><td>ContactPage</td><td>Error Messages</td></tr>
+    <tr><td>TC2</td><td>Contact Form - Successful Submit</td><td>ContactPage</td><td>Success Message</td></tr>
+    <tr><td>TC3</td><td>Shopping Cart - Total Calculation</td><td>ShopPage</td><td>Price & Subtotal Match</td></tr>
+  </table>
+
+  <h2 id="cicd">🔁 CI/CD Integration with Jenkins</h2>
+  <h3>Jenkins Setup</h3>
+  <ol>
+    <li>Install Jenkins and required plugins</li>
+    <li>Ensure Jenkins agent has Node.js, npm, Git, and Playwright</li>
+    <li>Configure using the provided Jenkinsfile</li>
+  </ol>
+
+  <h3>Jenkinsfile</h3>
+  <pre><code>pipeline {
+  agent any
+  tools {
+    nodejs 'NodeJS'
+  }
+  stages {
+    stage('Install') {
+      steps {
+        sh 'npm install'
+      }
+    }
+    stage('Test') {
+      steps {
+        sh 'npx playwright install'
+        sh 'npx playwright test'
+      }
+    }
+  }
+  post {
+    always {
+      archiveArtifacts artifacts: 'test-results/**/*.*', allowEmptyArchive: true
+    }
+  }
+}</code></pre>
+
+  <h2 id="getting-started">🚀 Getting Started</h2>
+  <pre><code>git clone git@github.com:chandanalane/planit-playwright-e2e.git
+cd planit-playwright-e2e
+npm install
+npx playwright install
+npx playwright test</code></pre>
+
+  <h2 id="reporting">🔍 Reporting & Debugging</h2>
+  <ul>
+    <li>Traces and console logs are added in the framework</li>
+    <li>Generate HTML report:
+      <pre><code>npx playwright show-report</code></pre>
+    </li>
+  </ul>
+
+  <h2 id="structure">🧩 Project Structure</h2>
+  <pre><code>/pages
+  HomePage.ts
+  ContactPage.ts
+  ShopPage.ts
+/tests
+  contact.test.ts
+  shop.test.ts
+/lib
+  utils.ts
+Jenkinsfile
+README.md
+document.html</code></pre>
+
+  <h2>📚 Summary for Online Assessment</h2>
+  <ol>
+    <li>Used Page-Object-Model (POM) to structure test logic cleanly</li>
+    <li>Scripts are modular and reusable across scenarios</li>
+    <li>Integrated Jenkins for continuous testing and feedback</li>
+    <li>Added logs and validation steps to ease troubleshooting</li>
+    <li>Implemented retry utility and dynamic waits for stability</li>
+  </ol>
+
+  <h2 id="author">✍️ Author Details</h2>
+  <ul>
+    <li><strong>Name:</strong> Chandana Marrikunta</li>
+    <li><strong>Email:</strong> chandanalane@gmail.com</li>
+    <li><strong>GitHub:</strong> https://github.com/chandanalane</li>
+  </ul>
+</body>
+</html>
